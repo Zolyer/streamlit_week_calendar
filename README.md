@@ -1,6 +1,6 @@
 # streamlit-week-calendar
 
-Streamlit component that allows you to use react-schedule-selector
+Streamlit component that allows you to use [react-schedule-selector](https://github.com/bibekg/react-schedule-selector)
 
 ## Installation instructions
 
