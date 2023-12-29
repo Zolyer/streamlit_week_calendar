@@ -7,7 +7,7 @@ long_description = (this_directory / "README.md").read_text()
 
 setuptools.setup(
     name="streamlit_week_calendar",
-    version="0.0.1",
+    version="0.0.2",
     author="Zolyer",
     author_email="tannaim@kyonggi.ac.kr",
     description="Streamlit component that allows you to use react-schedule-selector",

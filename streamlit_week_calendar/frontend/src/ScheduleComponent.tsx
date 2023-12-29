@@ -73,7 +73,7 @@ class ScheduleComponent extends StreamlitComponentBase<State> {
                     ? this.getSelectedColor(this.state.selectedTemplate, templates)
                       : this.isSelectedInOtherTemplate(date) 
                         ? this.getOtherColorForDate(date, Object.keys(this.state.schedule)) // 다른 템플릿에서 선택된 날짜에 대한 색상
-                    : "lightgray", // 선택되지 않은 경우의 기본 색상
+                    : "Gainsboro", // 선택되지 않은 경우의 기본 색상
                   width: "100%",
                   height: "100%",
                 }}
@@ -137,7 +137,7 @@ class ScheduleComponent extends StreamlitComponentBase<State> {
         return this.getSelectedColor(template, templates); // 이전에 정의된 getSelectedColor 함수 사용
       }
     }
-    return "lightgray"; // 기본 색상
+    return "Gainsboro"; // 기본 색상
   }
 
   private handleChange = (newSchedule: any) => {
@@ -147,7 +147,6 @@ class ScheduleComponent extends StreamlitComponentBase<State> {
         [this.state.selectedTemplate]: newSchedule
       }
     }));
-
     const jsonDates: { [key: string]: any } = {};
 
     Object.keys(this.state.schedule).forEach((template) => {
