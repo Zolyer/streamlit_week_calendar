@@ -98,7 +98,7 @@ def week_calendar(num_days=7, min_time=0, max_time=24, hourly_chunks=1, date_for
         hourly_chunks=hourly_chunks,
         date_format=date_format,
         start_date=start_date, schedule=day_convert,
-        key=key, default=day_convert
+        key=key, default=schedule
         )
 
     return component_value
