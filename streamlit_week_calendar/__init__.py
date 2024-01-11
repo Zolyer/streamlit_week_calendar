@@ -1,7 +1,7 @@
 import os
 import streamlit.components.v1 as components
 
-_RELEASE = True
+_RELEASE = False
 
 if not _RELEASE:
     _component_func = components.declare_component(
@@ -15,7 +15,7 @@ else:
     _component_func = components.declare_component("streamlit_week_calendar", path=build_dir)
 
 
-def week_calendar(num_days=7, min_time=0, max_time=24, hourly_chunks=1, date_format='ddd', start_date='2023-12-18', schedule=[], key=None):
+def week_calendar(num_days=7, min_time=0, max_time=24, hourly_chunks=1, date_format='ddd', start_date='2023-12-18', schedule={}, key=None):
     """Create a new instance
 
     Parameters
@@ -98,7 +98,7 @@ def week_calendar(num_days=7, min_time=0, max_time=24, hourly_chunks=1, date_for
         hourly_chunks=hourly_chunks,
         date_format=date_format,
         start_date=start_date, schedule=day_convert,
-        key=key, default=0
+        key=key, default=day_convert
         )
 
     return component_value
@@ -116,10 +116,21 @@ if not _RELEASE:
     
     st.set_page_config(layout='wide')
 
-    schedule = week_calendar(
-        schedule=data
+    sel = st.multiselect(
+        'Select Templates',
+        list(data.keys())
     )
 
+    input_data = {}
+    if sel:
+        for i in sel:
+            input_data[i] = data[i]
+
+
+    schedule = week_calendar(
+        schedule=input_data
+    )
+    
     if schedule:
         # 데이터를 포함하는 새로운 딕셔너리 생성
         new_data = {}

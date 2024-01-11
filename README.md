@@ -1,6 +1,7 @@
 # streamlit-week-calendar
 
 Streamlit component that allows you to use react-schedule-selector
+![Alt text](example.png)
 
 ## Installation instructions
 
